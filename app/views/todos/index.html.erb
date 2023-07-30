@@ -1,0 +1,8 @@
+<h1 style="font-size:60px;">Todos</h1>
+<ol>
+  <% @todos.each do |todo| %>
+    <li><%= link_to todo.title, todo_path(todo) %>  <button><%= link_to "Remove item", todo, data: {turbo_method: :delete,turbo_confirm: "Are you sure?"} %></button></li>
+    
+  <% end %>
+</ol>
+<button><%= link_to 'New Todo', new_todo_path %></button>
