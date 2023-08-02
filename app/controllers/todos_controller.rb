@@ -1,8 +1,8 @@
 class TodosController < ApplicationController
-before_action :find_todo, only: [:show, :edit, :update, :destroy]
+before_action :set_todo, only: [:show, :edit, :update, :destroy]
 
   def index
-    @todos = Todo.all
+    @todos = current_user.todos.all
   end
 
   def show
@@ -10,11 +10,11 @@ before_action :find_todo, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @todo = Todo.new
+    @todo = current_usert.todos.build
   end
 
   def create
-    @todo = Todo.new(todo_params)
+    @todo = current_usert.todos.build(todo_params)
     if @todo.save
       redirect_to todo_path(@todo)
     else
@@ -40,11 +40,18 @@ before_action :find_todo, only: [:show, :edit, :update, :destroy]
 
   private
 
-  def find_todo
-    @todo = Todo.find(params[:id])
+  def set_todo
+    @todo = current_usert.todos.find(params[:id])
   end
 
   def todo_params
     params.require(:todo).permit(:title, :description, :completed)
   end
+
+  protected
+  
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :email, :password, :password_confirmation])
+  end
+
 end
