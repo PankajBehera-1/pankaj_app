@@ -1,4 +1,4 @@
 class Todo < ApplicationRecord
     validates :title, presence: true
-    belons_to :user
+    belongs_to :user
 end

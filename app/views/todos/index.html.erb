@@ -1,5 +1,5 @@
 <h1 style="font-size:60px;">Todos</h1>
-<P>WELCOME !!!<p>
+<img src="https://www.shutterstock.com/shutterstock/photos/1176019075/display_1500/stock-vector-autumn-welcome-sign-with-colorful-maple-leaves-vector-background-1176019075.jpg" width='600' height='500'>
 <p>HERE YOU CAN ADD YOUR TASKS WHATEVER YOU WANT TO DO.</p>
 <ol>
   <% @todos.each do |todo| %>
@@ -8,3 +8,4 @@
   <% end %>
 </ol>
 <button><%= link_to 'New Todo', new_todo_path %></button>
+ <%= link_to "log_out", new_user_session_path %>

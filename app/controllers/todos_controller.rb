@@ -10,11 +10,11 @@ before_action :set_todo, only: [:show, :edit, :update, :destroy]
   end
 
   def new
-    @todo = current_usert.todos.build
+    @todo = current_user.todos.build
   end
 
   def create
-    @todo = current_usert.todos.build(todo_params)
+    @todo = current_user.todos.build(todo_params)
     if @todo.save
       redirect_to todo_path(@todo)
     else
@@ -41,7 +41,7 @@ before_action :set_todo, only: [:show, :edit, :update, :destroy]
   private
 
   def set_todo
-    @todo = current_usert.todos.find(params[:id])
+    @todo = current_user.todos.find(params[:id])
   end
 
   def todo_params
