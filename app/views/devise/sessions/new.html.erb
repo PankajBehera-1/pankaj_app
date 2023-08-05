@@ -1,8 +1,7 @@
 
-
 <style>
 body{
-  background-color: aquamarine;
+  background-color: #7FFFD4;
   text-align: center;
 }
 p{
@@ -10,11 +9,39 @@ p{
   font-size: 20px;
   text-align: center;
 }
+button {
+  background-color: red;
+  color: white;
+  padding: 7px 7px;
+  margin: 6px 0;
+  border: none;
+  cursor: pointer;
+  width: 55%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+ .login-container {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 100px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-container h1 {
+    text-align: center;
+    color: rgb(76, 175, 80); /* Match the background color or choose a complementary color */
+  }
+
 </style>
+<div class="login-container">
 <img src="https://tse2.mm.bing.net/th?id=OIP.FcmlNq941J04guCFeZOgOgHaHa&pid=Api&P=0&h=180">
 
 <h1>Log in</h1>
-
+<b>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -35,8 +62,11 @@ p{
   <% end %>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <button>login</button>
   </div>
-<% end %>
 
+<% end %>
+</b>
 <%= render "devise/shared/links" %>
+
+</div>
