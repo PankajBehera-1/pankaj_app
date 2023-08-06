@@ -1,5 +1,57 @@
+
+<h1 style="font-size:60px;">HERE YOU CAN EDIT YOUR TASKS</H1>
 <h1><%= @todo.title %></h1>
+
 <p><%= @todo.description %></p>
 <p>Completed: <%= @todo.completed ? 'Yes' : 'No' %></p>
-<%= link_to 'Edit', edit_todo_path(@todo) %> |
-<%= link_to 'Back', todos_path %>
+<button><%= link_to 'Edit', edit_todo_path(@todo) %></button>
+<button><%= link_to 'Back', todos_path %></button>
+<style>
+body {
+  background-image: url('https://img.freepik.com/free-photo/top-view-color-palette-house-renovation-with-notebook-copy-space_23-2148815786.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover; 
+  text-align: center;
+  }
+</style>
+
+
+
+
+<style>
+button {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+button:hover,
+button:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: #FF4742;
+}
+
+button:active {
+  opacity: .5;
+}
