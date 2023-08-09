@@ -1,16 +1,59 @@
+<style>
+body{
+   background-image: url('https://tse3.mm.bing.net/th?id=OIP.wBRxf6twok5A4E_N2ATSlwHaEK&pid=Api&P=0&h=180');
+   background-repeat: no-repeat;
+   background-size: cover;
+  text-align: center;
+}
+p{
+  
+  font-size: 20px;
+  text-align: center;
+}
+button {
+  background-color: red;
+  color: white;
+  padding: 7px 7px;
+  margin: 6px 0;
+  border: none;
+  cursor: pointer;
+  width: 55%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+ .login-container {
+    width: 300px;
+    background: yellow;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 100px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .login-container h1 {
+    text-align: center;
+    color: rgb(76, 175, 80); /* Match the background color or choose a complementary color */
+  }
+  </style>
+
 <h2>Forgot your password?</h2>
+<div class="login-container">
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
-  </div>
-<% end %>
-
+    <div class="actions">
+      <%= f.submit "Send me reset password instructions" %>
+    </div>
+  <% end %>
+</div>
 <%= render "devise/shared/links" %>
+
+
+
